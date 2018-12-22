@@ -2,11 +2,17 @@
 
 require '../vendor/autoload.php';
 
-
+$config = [
+	'settings' => [
+	'displayErrorDetails' => true
+    ]
+]
 //Create new application 
-$app = new App\App(['settings' => ['displayErrorDetails' => true]]);
+$app = new App\App($config);
 
 // Start application now
+
+
 $app->run();
 
 
