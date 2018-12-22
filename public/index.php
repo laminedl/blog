@@ -2,8 +2,12 @@
 
 require '../vendor/autoload.php';
 
-use Slim\App;
 
-$app = new App();
+//Create new application 
+$app = new App\App(['settings' => ['displayErrorDetails' => true]]);
 
+// Start application now
 $app->run();
+
+
+
