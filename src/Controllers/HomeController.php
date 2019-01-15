@@ -2,13 +2,21 @@
 
 namespace App\Controllers;
 
+use Slim\Views\Twig;
+use Psr\Http\Message\ResponseInterface;
+use Illuminate\Database\Capsule\Manager;
+use Psr\Http\Message\ServerRequestInterface;
+
+
+
 
 class HomeController extends Controller
 {
 
-	public function  __invoke($request, $response)
+	public function  __invoke(Twig $twig ,ServerRequestInterface $request, ResponseInterface $response)
 	{
-        return $this->render($response, 'home/welcome.html.twig');
+          		
+        return $twig->render($response, 'home/welcome.html.twig');
 	}
-
+	
 }

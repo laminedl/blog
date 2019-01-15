@@ -12,7 +12,8 @@
         "illuminate/database": "^5.7",
         "illuminate/events": "^5.7",
         "php-di/slim-bridge": "^2.0",
-        "robmorgan/phinx": "^0.10.6"
+        "robmorgan/phinx": "^0.10.6",
+        "slim/twig-view": "^2.4"
     },
     "autoload":{
  

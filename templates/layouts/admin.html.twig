@@ -1,0 +1,25 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block header %}{% endblock %}
+
+
+{% block body %}
+
+    <div class="sidebar">
+        {% block sidebar %}
+
+        <a href="{{ path_for('welcome') }}">Accueil</a>
+        <a href="{{ path_for('blog.index') }}">Blog</a>
+
+        <a href="">Services</a>
+
+        {% endblock %}  
+    </div>    
+    <div class="main">
+        {% block main %}{% endblock %}
+    </div>
+
+{% endblock %}
+
+
+{% block footer %}{% endblock %}

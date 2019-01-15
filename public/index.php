@@ -1,16 +1,16 @@
 <?php
 
-require '../vendor/autoload.php';
+use Illuminate\Database\Capsule\Manager;
 
-//App Configuration 
-$config = [
-	'settings' => [ 'displayErrorDetails' => true ]
-]
-;
+require_once dirname(__DIR__).'/vendor/autoload.php';
+
+
 //Create new application 
-$app = new App\App($config);
+$app = new App\App();
 
 
 // Start application now
-$app->run();
+if(php_sapi_name() === "cli-server"){
+    $app->run();
+}
 

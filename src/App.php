@@ -2,20 +2,21 @@
 
 namespace App;
 
-use Slim\App as Slim;
+use DI\ContainerBuilder;
+use DI\Bridge\Slim\App as AppDIBridge;
+use Illuminate\Database\Capsule\Manager;
 
-class App extends Slim
+class App extends AppDIBridge
 {
 
    private $webRoutesDir = 'routes/web.php';
 
    private $apiRoutesDir;
 
-   public function __construct(array $config = [])
+   public function __construct()
    {
-       parent::__construct($config);
+       parent::__construct();
        //Load routes  form /routes/web.php
-       $this->configure();
        $this->loadRoutes();
 
    }
@@ -27,15 +28,22 @@ class App extends Slim
         require $path;
     }
 
+    public function getConnection():\PDO
+    {
+        return $this->getContainer()->get(Manager::class)->getConnection()->getPdo();
+    }
+
+
+    protected function configureContainer(ContainerBuilder $builder)
+    {
+      $builder->addDefinitions(dirname(__DIR__).'/config/config.php');
+      
+    }
+
+
     private function getDefautRoutesDir():string
     {
         return dirname(__DIR__).DIRECTORY_SEPARATOR.$this->webRoutesDir;
        
-    }
-
-    private function configure():void
-    {
-      
-
     }
 }

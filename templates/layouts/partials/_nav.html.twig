@@ -1,11 +1,11 @@
 <header class="topbar">
-   	<a href="/" class="topbar-logo">
+   	<a href="{{ path_for('welcome') }}" class="topbar-logo">
 
    	    <img src="/assets/images/logo.png" alt="le logo du site" title="le log du site" width="50" height="50">
     </a>
     
    	<nav class="topbar-menu">
-        <a href="/blog">Blog</a>
+        <a href="{{ path_for('blog.index') }}">Blog</a>
         <a href="/contact">contact</a>
         <a href="/about">A-propos</a>
         <a href="/services">Services
